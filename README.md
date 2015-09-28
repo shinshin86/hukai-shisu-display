@@ -23,6 +23,14 @@ PythonのFrameworkである"Bottle"を使用しています。
 ####CLI版の使い方
 温度 湿度の順で引数を２つ入力して、当スクリプトを実行することで不快指数を計算して表示します。
 
-例：温度30度、湿度80%の場合<br>
+例：温度30度、湿度80%の場合
 
-	python hukai_shisu.py 30 80
+※Python2版とPython3版を用意しました。
+	
+	Python2版
+	python hukai_shisu_python2.py 30 80
+	
+	Python3版
+	python hukai_shisu_python3.py 30 80
+	
+
