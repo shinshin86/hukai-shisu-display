@@ -14,6 +14,9 @@ GUIとCLIの2種類を作成予定。
 
 PythonのFrameworkである"Bottle"を使用しています。
 
+#####---API---
+気象情報を取得するため、気象データの無料APIを提供するオンラインサービスである[Openweathermap](http://openweathermap.org/)のデータを使用します。
+
 
 ######---使用方法---
 
