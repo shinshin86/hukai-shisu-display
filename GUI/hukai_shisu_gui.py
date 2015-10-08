@@ -1,5 +1,12 @@
 # -*- coding: utf-8 -*-
-from bottle import route, run, template
+from bottle import route, run, template, static_file, url
+
+
+# css,js読み込み - TODO
+@route('/static/<filepath:path>',name='static_file')
+def static(filepath):
+    return static_file(filepath, root='./static')
+
 
 
 # URLから温度・湿度を取得
@@ -24,10 +31,9 @@ def today():
     result_tempe = "温度 : " + str(today_temperature)
     result_humi = " 湿度 : " + str(today_humidity)
     result_hukai = " 本日の不快指数 : " + str(today_hukai_shisu_result)
-    
-    # テンプレート読み込み
-    return template('index', html_today_temperature=result_tempe, html_today_humidity=result_humi,html_today_hukai_shisu_result=result_hukai)
 
+    # テンプレート読み込み
+    return template('index', html_today_temperature=result_tempe, html_today_humidity=result_humi,html_today_hukai_shisu_result=result_hukai,url=url)
 
 
 # サーバーの設定(開発用) - debugとreloaderを有効にしている
