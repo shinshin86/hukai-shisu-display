@@ -2,7 +2,7 @@
 from bottle import route, run, template, static_file, url
 
 
-# css,js読み込み - TODO
+# css,js読み込み
 @route('/static/<filepath:path>',name='static_file')
 def static(filepath):
     return static_file(filepath, root='./static')
@@ -28,9 +28,9 @@ def today():
     today_temperature = 20
     today_humidity = 70
     today_hukai_shisu_result = 0.81 * float(today_temperature) + 0.01 * float(today_humidity) * (0.99 * float(today_temperature) - 14.3) + 46.3
-    result_tempe = "温度 : " + str(today_temperature)
-    result_humi = " 湿度 : " + str(today_humidity)
-    result_hukai = " 本日の不快指数 : " + str(today_hukai_shisu_result)
+    result_tempe = str(today_temperature)
+    result_humi = str(today_humidity)
+    result_hukai = str(today_hukai_shisu_result)
 
     # テンプレート読み込み
     return template('index', html_today_temperature=result_tempe, html_today_humidity=result_humi,html_today_hukai_shisu_result=result_hukai,url=url)
