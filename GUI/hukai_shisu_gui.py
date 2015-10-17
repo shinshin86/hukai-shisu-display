@@ -36,5 +36,16 @@ def today():
     return template('index', html_today_temperature=result_tempe, html_today_humidity=result_humi,html_today_hukai_shisu_result=result_hukai,url=url)
 
 
+# Debug用 - 読み込んだjsonをそのままブラウザ上に表示
+@route('/array')
+def returnarray():
+    from bottle import response
+    from json import dumps
+    f = open('./data/data.json', 'r')
+    jsonData = json.load(f)
+    response.content_type = 'application/json'
+    return dumps(jsonData)
+
+
 # サーバーの設定(開発用) - debugとreloaderを有効にしている
 run(host='localhost', port=8081, debug=True, reloader=True)
