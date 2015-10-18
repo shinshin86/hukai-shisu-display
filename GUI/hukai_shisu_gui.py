@@ -1,12 +1,11 @@
 # -*- coding: utf-8 -*-
 from bottle import route, run, template, static_file, url
-
+import json
 
 # css,js読み込み
 @route('/static/<filepath:path>',name='static_file')
 def static(filepath):
     return static_file(filepath, root='./static')
-
 
 
 # URLから温度・湿度を取得
@@ -23,6 +22,16 @@ def print_hukaiShisu(temperature,humidity):
 # 本日の不快指数を表示
 @route('/today')
 def today():
+    
+    # json読み込み
+    f = open('./data/data.json', 'r')
+    jsonData = json.load(f)
+    
+    # debug
+    for k, v in jsonData.items():
+        print(k,v)
+    
+    f.close()
     
     # 本日の不快指数を取得、処理。
     today_temperature = 20
