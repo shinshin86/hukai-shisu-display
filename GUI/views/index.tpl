@@ -7,9 +7,9 @@ labels: [1, 2, 3, 4, 5, 6, 7],
 datasets: [
 {
 label: "Temperature",
-fillColor: "rgba(220,220,220,0.2)",
-strokeColor: "rgba(220,220,220,1)",
-pointColor: "rgba(220,220,220,1)",
+fillColor: "rgba(80,180,230,0.2)",
+strokeColor: "rgba(80,180,230,1)",
+pointColor: "rgba(80,180,230,1)",
 pointStrokeColor: "#fff",
 pointHighlightFill: "#fff",
 pointHighlightStroke: "rgba(220,220,220,1)",
@@ -17,9 +17,9 @@ pointHighlightStroke: "rgba(220,220,220,1)",
 },
 {
 label: "Today Humidity",
-fillColor: "rgba(151,187,205,0.2)",
-strokeColor: "rgba(151,187,205,1)",
-pointColor: "rgba(151,187,205,1)",
+fillColor: "rgba(251,167,205,0.2)",
+strokeColor: "rgba(251,167,205,0.5)",
+pointColor: "rgba(151,107,205,1)",
 pointStrokeColor: "#fff",
 pointHighlightFill: "#fff",
 pointHighlightStroke: "rgba(151,187,205,1)",
@@ -27,9 +27,9 @@ data: [{{ago_humid_0}},{{ago_humid_1}},{{ago_humid_2}}, {{ago_humid_3}}, {{ago_h
 },
 {
 label: "Hukai Shisu",
-fillColor: "rgba(221,127,235,0.2)",
-strokeColor: "rgba(221,127,205,1)",
-pointColor: "rgba(151,137,205,1)",
+fillColor: "rgba(151,197,215,0.2)",
+strokeColor: "rgba(151,197,215,0.8)",
+pointColor: "rgba(151,197,215,1)",
 pointStrokeColor: "#fff",
 pointHighlightFill: "#fff",
 pointHighlightStroke: "rgba(151,187,205,1)",
@@ -44,10 +44,10 @@ var lineChart = new Chart(ctx).Line(data, options);
 </script>
 <body onload="displayLineChart();">
 <div class="box">
-<canvas id="lineChart" height="450" width="900"></canvas>
+<canvas id="lineChart" height="400" width="900"></canvas>
 </div>
 
-<h1>温度 : {{html_today_temperature}}</h1>
-<h1>湿度 : {{html_today_humidity}}</h1>
-<h1>本日の不快指数 : {{html_today_hukai_shisu_result}}</h1>
+<div class="today">本日の温度 : {{html_today_temperature}}</div>
+<div class="today">本日の湿度 : {{html_today_humidity}}</div>
+<div class="today">本日の不快指数 : {{html_today_hukai_shisu_result}}</div>
 </body>
