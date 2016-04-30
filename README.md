@@ -1,47 +1,55 @@
 # hukai-shisu-display
-####不快指数を表示するプログラム。
-習作です。<br>
-GUI版とCLI版の2種類が存在します。
+####This app will display a temperature-humidity index.
+* **This source is a education to self.**<br>
+
+* This app have a two version.
+GUI version and CLI version.
+
+* hukai-shisu(不快指数) is a Japanese word.<br>
+This means "temperature-humidity index".
+
 
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](./LICENSE)
 
+
+
 -----
-####GUI版の使い方
-* "本日の不快指数"、ならびに温度と湿度を数値で表示する機能を実装予定。
-* ７日前までの不快指数、並びに温度と湿度をグラフで表示。
+####How to use a GUI version.
+* Display a Today's temperature-humidity index.<br>
+And Temperature and humidity also display.
+
+* Display 5 days before up to information.
 
 
-##### ---デモ画面---
+##### ---DEMO---
 
 ![デモ画面](./image/demo_01.png)
 
-#####---動作環境---
+#####---Environment---
 
-* Python3で実装・動作検証を行っていきます。
+* This app use a "Python 3" and Python's framework of "Bottle".
 
-* PythonのFrameworkである"Bottle"を使用しています。
-
-* グラフ描画にJavascriptのライブラリ"Chart.js"を使用します。
+* Graph part use a JavaScript's library of "Chart.js".
 
 
 ####---API---
-気象情報を取得するため、気象データの無料APIを提供するオンラインサービスである[Openweathermap](http://openweathermap.org/)のデータを使用します。<br>
+Weather information get a data of "[Openweathermap](http://openweathermap.org/)".
 
 
 
 -------
 
-####CLI版の使い方
-温度 湿度の順で引数を２つ入力して、当スクリプトを実行することで不快指数を計算して表示します。
+####How to use a CLI version.
+This script need a two arguments, In the order of temperature and humidity.
+execute a script then display a temperature-humidity index.
 
-例：温度30度、湿度80%の場合
+Example：temperature 30℃、humidity 80%
 
-※Python2版とPython3版を用意しました。
 	
-	Python2版
+	Python 2
 	python hukai_shisu_python2.py 30 80
 	
-	Python3版
+	Python 3
 	python hukai_shisu_python3.py 30 80
 	
 
