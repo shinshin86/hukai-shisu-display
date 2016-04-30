@@ -23,7 +23,7 @@ And Temperature and humidity also display.
 
 ##### ---DEMO---
 
-![デモ画面](./image/demo_01.png)
+![デモ画面](./image/demo.png)
 
 #####---Environment---
 
