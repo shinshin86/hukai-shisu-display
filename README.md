@@ -1,5 +1,5 @@
 # hukai-shisu-display
-####This app will display a temperature-humidity index.
+####This app display a temperature-humidity index.
 * **This source is a education to self.**<br>
 
 * This app have a two version.
