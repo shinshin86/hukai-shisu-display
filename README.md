@@ -3,6 +3,8 @@
 習作です。<br>
 GUI版とCLI版の2種類が存在します。
 
+[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](./LICENSE)
+
 -----
 ####GUI版の使い方
 * "本日の不快指数"、ならびに温度と湿度を数値で表示する機能を実装予定。
