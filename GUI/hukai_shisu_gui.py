@@ -2,14 +2,15 @@
 from bottle import route, run, template, static_file, url
 import json
 import math
+import weather_data
 
-# css,js読み込み
+# Read a "css" & "js"
 @route('/static/<filepath:path>',name='static_file')
 def static(filepath):
     return static_file(filepath, root='./static')
 
 
-# URLから温度・湿度を取得
+# Get the temperature and humidity from URL
 @route('/<temperature:int>/<humidity:int>')
 def print_hukaiShisu(temperature,humidity):
     hukai_shisu_result = 0.81 * float(temperature) + 0.01 * float(humidity) * (0.99 * float(temperature) - 14.3) + 46.3
@@ -20,56 +21,46 @@ def print_hukaiShisu(temperature,humidity):
 
 
 
-# 本日の不快指数を表示
+# Display a today's temperature-humidity index.
 @route('/today')
 def today():
     
-    # 温度、湿度を格納するリストを用意
+    # temperature & humidity list
     temperatureList = []
     humidityList=[]
     
-    # json読み込み
-    f = open('./data/data.json', 'r')
-    jsonData = json.load(f)
+    # Get a weather data & Read a "json"
+    jsonData = json.loads(weather_data.get_weather("Please put a city id(string).", "Your API Key"))
     
-    # キーのリスト化
-    keyList = jsonData.keys()
-    
-    for k in keyList:
+    # Get a data in list
+    for i in range(5):
+        list_data = jsonData['list'][i]
         
-        # listを取り出す
-        if k == "list":
-            groupList = jsonData[k]
-        
-            for n in groupList:
-              # ケルビン係数で入っているため、273.15引いてから代入
-              temperatureList.append(n["temperature"] - 273.15)
-
-              humidityList.append(n["humidity"])
+        # This data is Kelvin coefficient. Before assignment, minus 273.15
+        temperatureList.append(list_data['main']['temp'] - 273.15)
+        humidityList.append(list_data['main']['humidity'])
 
 
-    f.close()
 
-
-    # 1~6日前までの温度・湿度を取得
+    # Get a data(temperature & humidity) of since 5 days ago.
     result_ago_tempe = []
     result_ago_humid = []
     hukai_shisu_result_ago = []
-    for i in range(6):
+    for i in range(5):
         result_ago_tempe.append(math.trunc(temperatureList[i]))
         result_ago_humid.append(math.trunc(humidityList[i]))
         hukai_shisu_result_ago.append(math.trunc(0.81 * float(temperatureList[i]) + 0.01 * float(humidityList[i]) * (0.99 * float(temperatureList[i]) - 14.3) + 46.3))
     
     
-    # 本日の不快指数を取得、処理。
-    today_temperature = temperatureList[6]
-    today_humidity = humidityList[6]
+    # Get a today's temperature-humidity index.
+    today_temperature = temperatureList[4]
+    today_humidity = humidityList[4]
     today_hukai_shisu_result = 0.81 * float(today_temperature) + 0.01 * float(today_humidity) * (0.99 * float(today_temperature) - 14.3) + 46.3
     result_tempe = str(math.trunc(today_temperature))
     result_humi = str(math.trunc(today_humidity))
     result_hukai = str(math.trunc(today_hukai_shisu_result))
 
-    # テンプレート読み込み
+    # Read a template
     return template('index', html_today_temperature=result_tempe, html_today_humidity=result_humi,html_today_hukai_shisu_result=result_hukai,url=url,
                     ago_tempe_0 = result_ago_tempe[0],
                     ago_humid_0 = result_ago_humid[0],
@@ -81,27 +72,24 @@ def today():
                     ago_humid_3 = result_ago_humid[3],
                     ago_tempe_4 = result_ago_tempe[4],
                     ago_humid_4 = result_ago_humid[4],
-                    ago_tempe_5 = result_ago_tempe[5],
-                    ago_humid_5 = result_ago_humid[5],
                     ago_hukai_0 = hukai_shisu_result_ago[0],
                     ago_hukai_1 = hukai_shisu_result_ago[1],
                     ago_hukai_2 = hukai_shisu_result_ago[2],
                     ago_hukai_3 = hukai_shisu_result_ago[3],
-                    ago_hukai_4 = hukai_shisu_result_ago[4],
-                    ago_hukai_5 = hukai_shisu_result_ago[5]
+                    ago_hukai_4 = hukai_shisu_result_ago[4]
                     )
 
 
-# Debug用 - 読み込んだjsonをそのままブラウザ上に表示
+# Debug function : Display a json data on browser
+'''
 @route('/array')
 def returnarray():
     from bottle import response
     from json import dumps
-    f = open('./data/data.json', 'r')
-    jsonData = json.load(f)
+    jsonData = json.loads(weather_data.get_weather("Please put a city id(string).", "Your API Key"))
     response.content_type = 'application/json'
     return dumps(jsonData)
+'''
 
-
-# サーバーの設定(開発用) - debugとreloaderを有効にしている
+# Server setting (To develop) - Enable a debug & reloader
 run(host='localhost', port=8081, debug=True, reloader=True)

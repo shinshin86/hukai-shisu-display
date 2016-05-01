@@ -3,7 +3,7 @@
 <script language="JavaScript">
 function displayLineChart() {
 var data = {
-labels: [1, 2, 3, 4, 5, 6, 7],
+labels: [1, 2, 3, 4, 5],
 datasets: [
 {
 label: "Temperature",
@@ -13,7 +13,7 @@ pointColor: "rgba(80,180,230,1)",
 pointStrokeColor: "#fff",
 pointHighlightFill: "#fff",
 pointHighlightStroke: "rgba(220,220,220,1)",
-           data: [{{ago_tempe_0}},{{ago_tempe_1}},{{ago_tempe_2}}, {{ago_tempe_3}}, {{ago_tempe_4}}, {{ago_tempe_5}}, {{html_today_temperature}}]
+           data: [{{ago_tempe_0}},{{ago_tempe_1}},{{ago_tempe_2}}, {{ago_tempe_3}}, {{html_today_temperature}}]
 },
 {
 label: "Today Humidity",
@@ -23,7 +23,7 @@ pointColor: "rgba(151,107,205,1)",
 pointStrokeColor: "#fff",
 pointHighlightFill: "#fff",
 pointHighlightStroke: "rgba(151,187,205,1)",
-data: [{{ago_humid_0}},{{ago_humid_1}},{{ago_humid_2}}, {{ago_humid_3}}, {{ago_humid_4}}, {{ago_humid_5}},  {{html_today_humidity}}]
+data: [{{ago_humid_0}},{{ago_humid_1}},{{ago_humid_2}}, {{ago_humid_3}},  {{html_today_humidity}}]
 },
 {
 label: "Hukai Shisu",
@@ -33,7 +33,7 @@ pointColor: "rgba(151,197,215,1)",
 pointStrokeColor: "#fff",
 pointHighlightFill: "#fff",
 pointHighlightStroke: "rgba(151,187,205,1)",
-data: [{{ago_hukai_0}},{{ago_hukai_1}},{{ago_hukai_2}}, {{ago_hukai_3}}, {{ago_hukai_4}}, {{ago_hukai_5}}, {{html_today_hukai_shisu_result}}]
+data: [{{ago_hukai_0}},{{ago_hukai_1}},{{ago_hukai_2}}, {{ago_hukai_3}}, {{html_today_hukai_shisu_result}}]
 }
 ]
 };
