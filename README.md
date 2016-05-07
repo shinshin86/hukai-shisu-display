@@ -23,6 +23,8 @@ And Temperature and humidity also display.
 
 ##### ---DEMO---
 
+[DEMO PAGE on Heroku](https://hukai-shisu-display.herokuapp.com/)
+
 ![デモ画面](./image/demo.png)
 
 #####---Environment---

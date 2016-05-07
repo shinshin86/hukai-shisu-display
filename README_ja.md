@@ -13,6 +13,8 @@ GUI版とCLI版の2種類が存在します。
 
 ##### ---デモ画面---
 
+[DEMO PAGE on Heroku](https://hukai-shisu-display.herokuapp.com/)
+
 ![デモ画面](./image/demo.png)
 
 #####---動作環境---
