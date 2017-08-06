@@ -1,5 +1,5 @@
 # hukai-shisu-display
-####This app display a temperature-humidity index.
+#### This app display a temperature-humidity index.
 * **This source is a education to self.**<br>
 
 * This app have a two version.
@@ -14,7 +14,7 @@ This means "temperature-humidity index".
 
 
 -----
-####How to use a GUI version.
+#### How to use a GUI version.
 * Display a Today's temperature-humidity index.<br>
 And Temperature and humidity also display.
 
@@ -27,21 +27,21 @@ And Temperature and humidity also display.
 
 ![デモ画面](./image/demo.png)
 
-#####---Environment---
+##### ---Environment---
 
 * This app use a "Python 3" and Python's framework of "Bottle".
 
 * Graph part use a JavaScript's library of "Chart.js".
 
 
-####---API---
+#### ---API---
 Weather information get a data of "[Openweathermap](http://openweathermap.org/)".
 
 
 
 -------
 
-####How to use a CLI version.
+#### How to use a CLI version.
 This script need a two arguments, In the order of temperature and humidity.
 execute a script then display a temperature-humidity index.
 
